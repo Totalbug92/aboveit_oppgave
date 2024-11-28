@@ -62,8 +62,8 @@ export default function WordDisplay() {
     return (
         <div className="p-2">
             {error && (
-            <div className="card mb-6" role="alert" aria-live="assertive">
-                <div className="card-content pt-6">
+            <div className="mb-6" role="alert" aria-live="assertive">
+                <div className="pt-6">
                 <p className="text-red-500">{error}</p>
                 </div>
             </div>
