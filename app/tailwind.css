@@ -10,3 +10,37 @@ body {
     color-scheme: dark;
   }
 }
+
+h1 {
+  @apply text-4xl font-bold;
+}
+
+h2 {
+  @apply text-3xl font-semibold;
+}
+
+h3 {
+  @apply text-2xl font-medium;
+}
+
+h4 {
+  @apply text-xl font-medium;
+}
+
+h5 {
+  @apply text-lg font-medium;
+}
+
+button {
+  background-color: #18181b;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2f2f31;
+}

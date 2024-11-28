@@ -1,40 +1,38 @@
-# Welcome to Remix!
+# Project Title
 
-- 📖 [Remix docs](https://remix.run/docs)
+If I spent more time on this project, I'd add some testing to the site, mocking the API and testing to see if my UI works correctly. I'd also like to add ESLint for code quality and consistency.
 
-## Development
+## Description
 
-Run the dev server:
+I've created an app where you can search for words in the dictionary. The app will update the browser history and let you click on synonyms or antonyms, rerouting to those words. I've solved this assignment using React Remix and TailwindCSS
 
-```shellscript
-npm run dev
-```
+## Features
 
-## Deployment
+- Search for words in the dictionary
+- Update browser history with search results
+- Click on synonyms or antonyms to reroute to those words
 
-First, build your app for production:
+## Getting Started
 
-```sh
-npm run build
-```
+### Prerequisites
 
-Then run the app in production mode:
+- Node.js
+- npm or yarn
 
-```sh
-npm start
-```
+### Installation
 
-Now you'll need to pick a host to deploy it to.
+1. Install dependencies:
+    ```sh
+    cd your-repo-name
+    npm install
+    ```
+2. Start the development server:
+    ```sh
+    npm run dev
+    ```
 
-### DIY
+## Built With
 
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+- [React](https://reactjs.org/)
+- [Remix](https://remix.run/)
+- [Tailwind CSS](https://tailwindcss.com/)
