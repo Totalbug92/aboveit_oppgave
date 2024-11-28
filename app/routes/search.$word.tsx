@@ -1,7 +1,6 @@
 import { LoaderFunction } from '@remix-run/node';
 import { Link } from '@remix-run/react';
-import { useEffect } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from '@remix-run/react';
 
 export interface WordData {
     word: string
@@ -63,50 +62,50 @@ export default function WordDisplay() {
     return (
         <div className="p-2">
             {error && (
-                <div className="card mb-6">
-                    <div className="card-content pt-6">
-                        <p className="text-red-500">{error}</p>
-                    </div>
+            <div className="card mb-6" role="alert" aria-live="assertive">
+                <div className="card-content pt-6">
+                <p className="text-red-500">{error}</p>
                 </div>
+            </div>
             )}
 
             {wordData && (
-                <div className="pt-2">
-                    <h2>{wordData.word}</h2>
-                    <p className="text-gray-500">{wordData.origin}</p>
-                    <div className='flex flex-row items-center'>
-                    {wordData.phonetic && <p className="text-sm text-gray-500">{wordData.phonetic}</p>}
-                    {wordData.phonetics[0]?.audio && (
-                        <button onClick={() => new Audio(wordData.phonetics[0].audio).play()} className="ml-2 text-blue-500">
-                            🔊
-                        </button>
-                    )}
-                    </div>
-                    <div className="space-y-4">
-                        {wordData.meanings.map((meaning, index) => (
-                            <div key={index} className="mb-4">
-                                <h3 className="font-semibold">{meaning.partOfSpeech}</h3>
-                                <ul className="list-disc list-inside">
-                                    {meaning.definitions.map((def, defIndex) => (
-                                        <li key={defIndex} className="text-sm">
-                                            {def.definition}
-                                            {def.synonyms.length > 0 && 
-                                                <span className="text-gray-500 ml-2">
-                                                    Synonyms: {def.synonyms.map(syn => <Link className='underline mr-2' to={`/search/${syn}`} key={syn}>{syn}</Link>)}
-                                                </span>
-                                            }
-                                            {def.antonyms.length > 0 &&
-                                                <span className="text-gray-500 ml-2">
-                                                    Antonyms: {def.antonyms.map(ant => <Link to={`/search/${ant}`} key={ant}>{ant} </Link>)}
-                                                </span>
-                                            }
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
+            <div className="pt-2">
+                <h2>{wordData.word}</h2>
+                <p className="text-gray-500">{wordData.origin}</p>
+                <div className='flex flex-row items-center'>
+                {wordData.phonetic && <p className="text-sm text-gray-500">{wordData.phonetic}</p>}
+                {wordData.phonetics[0]?.audio && (
+                <button onClick={() => new Audio(wordData.phonetics[0].audio).play()} className="ml-2 text-blue-500" aria-label="Play pronunciation">
+                    🔊
+                </button>
+                )}
                 </div>
+                <div className="space-y-4">
+                {wordData.meanings.map((meaning, index) => (
+                    <div key={index} className="mb-4">
+                    <h3 className="font-semibold">{meaning.partOfSpeech}</h3>
+                    <ul className="list-disc list-inside">
+                        {meaning.definitions.map((def, defIndex) => (
+                        <li key={defIndex} className="text-sm">
+                            {def.definition}
+                            {def.synonyms.length > 0 && 
+                            <span className="text-gray-500 ml-2">
+                                Synonyms: {def.synonyms.map(syn => <Link className='underline mr-2' to={`/search/${syn}`} key={syn}>{syn}</Link>)}
+                            </span>
+                            }
+                            {def.antonyms.length > 0 &&
+                            <span className="text-gray-500 ml-2">
+                                Antonyms: {def.antonyms.map(ant => <Link to={`/search/${ant}`} key={ant}>{ant} </Link>)}
+                            </span>
+                            }
+                        </li>
+                        ))}
+                    </ul>
+                    </div>
+                ))}
+                </div>
+            </div>
             )}
 
         </div>
